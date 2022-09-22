@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/Login.css'
+import '../styles/Login.scss'
 import {Grid, Paper, Container, Avatar,TextField, Link} from '@mui/material'
 import Button from './Button';
 
@@ -13,8 +13,8 @@ function Login() {
                     <TextField  id="mail" label="email" variant="standard" placeholder='Enter your user email' fullWidth required />
                     <TextField  id="passwd" label="password" variant="standard"  placeholder='Enter your password'  type='password' fullWidth required  />
                     <Button id="login" content='Log in' type='submit'></Button><br></br>
-                    <Link href='#' fullWidth  >Forgot Password?</Link><br></br>
-                    <Link href='#' underline="hover" fullWidth>Create new account! </Link>
+                    <Link href='#' id="forgotPasswd" >Forgot Password?</Link><br></br>
+                    <Link href='#' id="newAccount" >Create new account! </Link>
                     
                     
             </Container>

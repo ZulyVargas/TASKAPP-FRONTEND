@@ -1,10 +1,10 @@
 import React from 'react';
-import '../styles/Button.css'
+import '../styles/Button.scss'
 
 function Button(props){
     console.log(props.content)
     return(
-        <button class="button button1" type={props.type} >{props.content}</button>
+        <button className="button button1" type={props.type} >{props.content}</button>
     )
 }
 
