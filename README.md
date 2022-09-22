@@ -27,7 +27,7 @@ Install the required libraries:
 
 
   ```bash
-npm install @mui/material @emotion/react @emotion/styled
+npm install @mui/icons-material @mui/material @emotion/styled     @emotion/react
   ```
 Run the app:
 
@@ -37,6 +37,8 @@ npm start
   ```
 ***Example***
 
+![run](/img/example1.png)
+![app](/img/app.png)
 
 ## Built With
 
