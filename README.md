@@ -28,6 +28,7 @@ Install the required libraries:
 
   ```bash
 npm install @mui/icons-material @mui/material @emotion/styled     @emotion/react
+npm install -g sass
   ```
 Run the app:
 
@@ -38,6 +39,7 @@ npm start
 ***Example***
 
 ![run](/img/example1.png)
+
 ![app](/img/app.png)
 
 ## Built With
@@ -46,6 +48,8 @@ npm start
 * [REACT](https://es.reactjs.org)  - is an open source Javascript library designed to create user interfaces to facilitate the development of single-page applications.
 
 * [MUI CORE](https://mui.com/material-ui/getting-started/overview/ )- is an open-source React component library that implements Google's Material Design.
+
+* [SASS](https://sass-lang.com)- Sass (which stands for 'Syntactically awesome style sheets) is an extension of CSS that enables to use things like variables, nested rules, inline imports and more.
 ## Authors
 
 * **Zuly Valentina Vargas Ramírez** 
