@@ -1,9 +1,11 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState, useContext} from 'react';
 import '../../styles/Login.scss'
 import {Grid, Paper, Container, Avatar,TextField, Link, Alert} from '@mui/material'
 import Button from '../Button';
 import UseFetchPOST from '../../utils/useFetchPOST';
 import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../../contexts/DataContext';
+
 
 function LoginView() {
     const navigate = useNavigate();
@@ -12,12 +14,14 @@ function LoginView() {
     const [submit, setSubmit] = useState({submit : false});
     const [auth, setAuth] = useState({auth : false});
     const [error, setError] = useState({error : false});
+    const {token, setUserToken }= useContext(AuthContext);
     
     const url = 'http://localhost:8080/v1/auth';
 
-    const loginSuccess = () =>{
+    const loginSuccess = async (tk) =>{
         setAuth({auth : true});
-        navigate('/home')
+        setUserToken(tk);
+        navigate('/home');
     }
 
     useEffect(() =>{
@@ -25,14 +29,17 @@ function LoginView() {
         try {
             if (submit.submit){ 
                 UseFetchPOST(request)
-                .then(res => (res.data.hasOwnProperty('token') ? loginSuccess() : setError({error:true})));
+                .then(res => (res.data.hasOwnProperty('token') ? loginSuccess(res.data.token) : setError({error:true})));
+
             }  
         } catch(e){
             console.log(e);
             setError(true);
+            setAuth({auth : false});
         }
     },[submit]);
     
+
 
     return (
         <Grid container id="GridLogin" component="main"  >
@@ -51,7 +58,6 @@ function LoginView() {
                             fullWidth required  />
                     </form>
                     <Button id="login" content='Log in' type='submit' onClick={ () => {
-                            console.log('click');
                             setSubmit({submit : true})}} ></Button><br></br>
                     <Link href='#' id="forgotPasswd" >Forgot Password?</Link><br></br>
                     <Link href='#' id="newAccount" >Create new account! </Link>                    

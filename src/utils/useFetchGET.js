@@ -1,27 +1,24 @@
-import {useState, useEffect} from 'react'
+let UseFetchGET = async (requestParams) => {
+    try {
+        var error = ''
+        const url = requestParams.url;
+        const headerRequest = new Headers({
+            'Authorization': 'BEARER ' + requestParams.token,
+            'Content-Type': 'application/json', 
+            'Access-Control-Allow-Origin': '*'
+        });
 
-const UseFetchGET = url => {
-    const [data, setData] = useState([])
-    const [loading, setLoading] = useState(true)
-    const [error, setError] = useState(null)
+        const requestOptions = {
+            method: 'GET',
+            headers: headerRequest,
+        };
 
-    useEffect(() => async () =>{
-        const fetchPathGet = async () =>{
-            try {
-                let res = await fetch (url);
-                let data = await res.json()
-                setData(data)
-                setLoading(false)
-            } catch(error){
-                setLoading(false)
-                setError(error)
-            }
-        }
-            fetchPathGet()
-        }, [url])
-
-        return {data, loading, error}
+        var res = await fetch (url, requestOptions);
+        var data = await res.json(); 
+    } catch(e){
+        error = e.message;
+    }
+    return {res,data,error}
 }
-
 
 export default UseFetchGET;
