@@ -14,7 +14,7 @@ function NavBar(props){
                 <nav>
                     <ul>
                     <li><a href="#">Profile</a></li>
-                    <li><a href="#" onClick={navigate('/login')} >Log Out</a></li>
+                    <li><a href="#"  >Log Out</a></li>
                     </ul>
                 </nav>
             </div>

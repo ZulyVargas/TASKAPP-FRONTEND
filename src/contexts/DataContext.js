@@ -1,19 +1,34 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 export const AuthContext = createContext(null); 
 
 const AuthContextProvider = (props) => {
 
-    const [tokenUser, setToken ] = useState({tokenUser:''});
-    
-    const setUserToken = (token) => {
-        setToken({tokenUser: token});
+    const [userToken, setToken] = useState("");
+    const [userInfo, setUserInfo] = useState({});
+
+    const setUserToken = async (token) => {
+        setToken(token);
     }
+
+    const setUser = async (userIn) => {
+        setUserInfo(userIn);
+    }
+
+    useEffect(() =>{
+        try {
+        } catch(e){
+            console.log(e);
+        }
+    },[userInfo]);
+
 
     return (
         <AuthContext.Provider value = {{
-            tokenUser,
-            setUserToken
+            userToken,
+            setUserToken,
+            userInfo,
+            setUser
         }}>
             {props.children}
         </AuthContext.Provider>

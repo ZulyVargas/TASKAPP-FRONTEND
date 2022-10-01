@@ -3,18 +3,19 @@ let UseFetchGET = async (requestParams) => {
         var error = ''
         const url = requestParams.url;
         const headerRequest = new Headers({
-            'Authorization': 'BEARER ' + requestParams.token,
-            'Content-Type': 'application/json', 
-            'Access-Control-Allow-Origin': '*'
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'Authorization': 'Bearer ' + requestParams.token
         });
 
+        
         const requestOptions = {
             method: 'GET',
-            headers: headerRequest,
+            headers: headerRequest
         };
-
+                
         var res = await fetch (url, requestOptions);
-        var data = await res.json(); 
+        var data = await res.json();
     } catch(e){
         error = e.message;
     }

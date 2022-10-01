@@ -3,6 +3,7 @@ import '../../styles/Login.scss'
 import {Grid, Paper, Container, Avatar,TextField, Link, Alert} from '@mui/material'
 import Button from '../Button';
 import UseFetchPOST from '../../utils/useFetchPOST';
+import UseFetchGET from '../../utils/useFetchGET';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/DataContext';
 
@@ -14,23 +15,41 @@ function LoginView() {
     const [submit, setSubmit] = useState({submit : false});
     const [auth, setAuth] = useState({auth : false});
     const [error, setError] = useState({error : false});
-    const {token, setUserToken }= useContext(AuthContext);
+    const {userToken,setUserToken,user,setUser }= useContext(AuthContext);
     
     const url = 'http://localhost:8080/v1/auth';
 
+    useEffect(() =>{
+        try {
+            if (auth.auth){ 
+                navigate('/home');
+            }  
+        } catch(e){
+            console.log(e);
+        }
+    },[auth]);
+
+    const getUser = async (tk) => {
+        const urlGetByEmail = 'http://localhost:8080/api/v1/user/mail/'+ mail;
+        const request = {'url': urlGetByEmail, 'token': tk};
+        const response = UseFetchGET(request)
+            .then(res => (res.data.hasOwnProperty('id') ? setUser(res.data) : setError({error:true})));  
+               
+    }
+
     const loginSuccess = async (tk) =>{
+        setUserToken(tk); 
+        getUser(tk);
         setAuth({auth : true});
-        setUserToken(tk);
-        navigate('/home');
     }
 
     useEffect(() =>{
         const request = {'url': url, body:{"email":mail,"password":password}}
         try {
             if (submit.submit){ 
-                UseFetchPOST(request)
+                const resp = UseFetchPOST(request)
                 .then(res => (res.data.hasOwnProperty('token') ? loginSuccess(res.data.token) : setError({error:true})));
-
+                
             }  
         } catch(e){
             console.log(e);
@@ -38,7 +57,6 @@ function LoginView() {
             setAuth({auth : false});
         }
     },[submit]);
-    
 
 
     return (

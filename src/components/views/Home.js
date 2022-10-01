@@ -6,14 +6,14 @@ import { AuthContext } from '../../contexts/DataContext';
 
 function Home() {
 
-    const {tokenUser, setUserToken} = useContext(AuthContext);
+    const {userToken,setUserToken,userInfo,setUser }= useContext(AuthContext);
     const [inHome, setInHome] = useState({inHome:true});
-    const url = 'http://localhost:8080/v1/auth';
 
     return (
         <div>
             <NavBar />
-            <h1>Home...in process</h1>   
+            <h1>Hello, Welcome + {userToken}</h1>
+            <h2>{userInfo.name}</h2>   
         </div>
     )
 }
