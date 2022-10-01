@@ -3,7 +3,7 @@ import '../../styles/Login.scss'
 import {Grid, Paper, Container, Avatar,TextField, Link, Alert} from '@mui/material'
 import Button from '../Button';
 import UseFetchPOST from '../../utils/useFetchPOST';
-import UseFetchGET from '../../utils/useFetchGET';
+import getRequests from '../../utils/useFetchGET';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/DataContext';
 
@@ -32,15 +32,14 @@ function LoginView() {
     const getUser = async (tk) => {
         const urlGetByEmail = 'http://localhost:8080/api/v1/user/mail/'+ mail;
         const request = {'url': urlGetByEmail, 'token': tk};
-        const response = UseFetchGET(request)
-            .then(res => (res.data.hasOwnProperty('id') ? setUser(res.data) : setError({error:true})));  
-               
+        const response = getRequests.UseFetchGETUsingToken(request)
+            .then(res => (res.data.hasOwnProperty('id') ? (setUser(res.data), setAuth({auth : true})) : setError({error:true})));          
+        
     }
 
     const loginSuccess = async (tk) =>{
         setUserToken(tk); 
         getUser(tk);
-        setAuth({auth : true});
     }
 
     useEffect(() =>{

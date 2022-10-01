@@ -1,14 +1,20 @@
-let UseFetchGET = async (requestParams) => {
+let UseFetchGETUsingToken = async (requestParams) => {
     try {
         var error = ''
         const url = requestParams.url;
-        const headerRequest = new Headers({
+        
+
+
+        const headerRequest = (new Headers({
             'Content-Type': 'application/json',
             'Access-Control-Allow-Origin': '*',
             'Authorization': 'Bearer ' + requestParams.token
-        });
+        }));
 
-        
+        /*if (requestParams.hasOwnProperty('token')){
+            headerRequest['Authorization'] = 'Bearer ' + requestParams.token;
+        }*/
+
         const requestOptions = {
             method: 'GET',
             headers: headerRequest
@@ -22,4 +28,31 @@ let UseFetchGET = async (requestParams) => {
     return {res,data,error}
 }
 
-export default UseFetchGET;
+let UseFetchGET= async (requestParams) => {
+    try {
+        var error = ''
+        const url = requestParams.url;
+
+        const headerRequest = (new Headers({
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+        }));
+
+        const requestOptions = {
+            method: 'GET',
+            headers: headerRequest
+        };
+                
+        var res = await fetch (url, requestOptions);
+        var data = await res.json();
+    } catch(e){
+        error = e.message;
+    }
+    return {res,data,error}
+}
+
+const getRequests = {
+    UseFetchGETUsingToken,
+    UseFetchGET};
+
+export default getRequests;
