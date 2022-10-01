@@ -12,6 +12,13 @@ This project is developed following the conditions of the following repository:
 
 [ Hooks / React Router ](https://github.com/CAPJackie/react-hooks-router-task-planner) 
 
+
+In this development the following repositories were used to call APIs. The Bearer token is used to authenticate the user and obtain his information. For both user and task services, the data is obtained through the API that makes the respective calls to the collections in MongoDB.
+
+[User-Service](https://github.com/ZulyVargas/Users-Microservice-JWT)
+
+[Task-service](https://github.com/ZulyVargas/Tasks-Microservice-RESTFUL-API)
+
 ### Prerequisites
 
 * [Node.js and npm command](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm) - npm is the default package management system for Node.js, a runtime environment for JavaScript.
@@ -50,7 +57,17 @@ npm start
 
   ![login-error](/img/loginError.png)
 
-  3. Home page:
+  3. Home page: The home page displays information about each of the user's tasks. For this user the saved tasks are:
+
+ ![tasks](/img/tasks-2324.png)
+
+ **Result:**
+
+   ![home-page](/img/homePage.png)
+
+
+*The functionality of adding new tasks is in process.*
+
 ## Built With
 
 * [Visual Studio Code](https://code.visualstudio.com) -  is a source code editor developed by Microsoft. It is free and multiplatform software, available for Windows, GNU/Linux and macOS.
