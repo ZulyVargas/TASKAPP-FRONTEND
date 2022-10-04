@@ -1,8 +1,8 @@
 # TaskApp FRONTEND
 
-In this practice the login view for the task app is created. 
+In this project the functionality of login and display of tasks is added by using Hooks and react router. 
 
-IETI - LAB04
+IETI - LAB05
 
 2022-2.
 
@@ -10,7 +10,14 @@ IETI - LAB04
 
 This project is developed following the conditions of the following repository:
 
-[ Intro to React JS ](https://github.com/CAPJackie/react-intro-task-planner) 
+[ Hooks / React Router ](https://github.com/CAPJackie/react-hooks-router-task-planner) 
+
+
+In this development the following repositories were used to call APIs. The Bearer token is used to authenticate the user and obtain his information. For both user and task services, the data is obtained through the API that makes the respective calls to the collections in MongoDB.
+
+[User-Service](https://github.com/ZulyVargas/Users-Microservice-JWT)
+
+[Task-service](https://github.com/ZulyVargas/Tasks-Microservice-RESTFUL-API)
 
 ### Prerequisites
 
@@ -22,12 +29,15 @@ To download the project run:
 
   ```bash
 git clone https://github.com/ZulyVargas/TASKAPP-FRONTEND.git
+git checkout hoks_tasks
   ```
+
 Install the required libraries:
 
 
   ```bash
 npm install @mui/icons-material @mui/material @emotion/styled     @emotion/react
+npm install react-router-dom
 npm install -g sass
   ```
 Run the app:
@@ -36,11 +46,27 @@ Run the app:
 npm install
 npm start      
   ```
-***Example***
+***Example view***
+  1. The following credentials can be used to log in to the application:
+      
+      **email**: gabo@gmail.com
+      
+      **password**: gabo123      
+    After the credentials are validated you will be redirected to the home page. 
+  2. If invalid credentials are used the following warning message will be displayed:
 
-![run](/img/example1.png)
+  ![login-error](/img/loginError.png)
 
-![app](/img/app.png)
+  3. Home page: The home page displays information about each of the user's tasks. For this user the saved tasks are:
+
+ ![tasks](/img/tasks-2324.png)
+
+ **Result:**
+
+   ![home-page](/img/homePage.png)
+
+
+*The functionality of adding new tasks is in process.*
 
 ## Built With
 
