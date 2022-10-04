@@ -1,58 +1,53 @@
 let UseFetchGETUsingToken = async (requestParams) => {
-    try {
-        var error = ''
-        const url = requestParams.url;
-        
+  try {
+    var error = "";
+    const url = requestParams.url;
 
+    const headerRequest = new Headers({
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      Authorization: "Bearer " + requestParams.token,
+    });
 
-        const headerRequest = (new Headers({
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-            'Authorization': 'Bearer ' + requestParams.token
-        }));
+    const requestOptions = {
+      method: "GET",
+      headers: headerRequest,
+    };
 
-        /*if (requestParams.hasOwnProperty('token')){
-            headerRequest['Authorization'] = 'Bearer ' + requestParams.token;
-        }*/
+    var res = await fetch(url, requestOptions);
+    var data = await res.json();
+  } catch (e) {
+    error = e.message;
+  }
+  return { res, data, error };
+};
 
-        const requestOptions = {
-            method: 'GET',
-            headers: headerRequest
-        };
-                
-        var res = await fetch (url, requestOptions);
-        var data = await res.json();
-    } catch(e){
-        error = e.message;
-    }
-    return {res,data,error}
-}
+let UseFetchGET = async (requestParams) => {
+  try {
+    var error = "";
+    const url = requestParams.url;
 
-let UseFetchGET= async (requestParams) => {
-    try {
-        var error = ''
-        const url = requestParams.url;
+    const headerRequest = new Headers({
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+    });
 
-        const headerRequest = (new Headers({
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-        }));
+    const requestOptions = {
+      method: "GET",
+      headers: headerRequest,
+    };
 
-        const requestOptions = {
-            method: 'GET',
-            headers: headerRequest
-        };
-                
-        var res = await fetch (url, requestOptions);
-        var data = await res.json();
-    } catch(e){
-        error = e.message;
-    }
-    return {res,data,error}
-}
+    var res = await fetch(url, requestOptions);
+    var data = await res.json();
+  } catch (e) {
+    error = e.message;
+  }
+  return { res, data, error };
+};
 
 const getRequests = {
-    UseFetchGETUsingToken,
-    UseFetchGET};
+  UseFetchGETUsingToken,
+  UseFetchGET,
+};
 
 export default getRequests;
