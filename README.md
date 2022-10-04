@@ -87,13 +87,18 @@ npm start
 ### Husky
 
 1. Run
-   npm i -D husky
-   npm set-script prepare "husky install"
-   npm run prepare
-   npm i -D prettier
-   npm set-script format "prettier --write ."
-   npx husky add .husky/pre-commit "npm run lint:fix && npm format"
 
+   npm i -D husky
+
+   npm set-script prepare "husky install"
+
+   npm run prepare
+
+   npm i -D prettier
+
+   npm set-script format "prettier --write ."
+
+   npx husky add .husky/pre-commit "npm run lint:fix && npm format"
 
 ## Built With
 
