@@ -100,6 +100,12 @@ npm start
 
    npx husky add .husky/pre-commit "npm run lint:fix && npm format"
 
+   If you have problems use instead: npx husky add .husky/pre-commit "npm run lint:fix && npm run format"
+
+![husky-one](/img/husky-one.png)
+
+![husky-two](/img/husky-two.png)
+
 ## Built With
 
 - [Visual Studio Code](https://code.visualstudio.com) - is a source code editor developed by Microsoft. It is free and multiplatform software, available for Windows, GNU/Linux and macOS.
