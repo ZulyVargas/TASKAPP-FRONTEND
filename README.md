@@ -77,6 +77,7 @@ npm start
 6. Running the app again with **npm start**:
 
    ![](/img/installableOk.png)
+   ![](/img/installableOk2.png)
 
 ### Part 2: State Management
 
