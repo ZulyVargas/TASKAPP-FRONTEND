@@ -1,4 +1,4 @@
-# TaskApp FRONTEND - Good coding practices
+# TaskApp FRONTEND - PWA - STATE MANAGEMENT
 
 In this project the tasks web app is converted into a PWA. Also, useContext is used to add the light and dark theme functionality to the application.
 
