@@ -1,8 +1,8 @@
 # TaskApp FRONTEND - Good coding practices
 
-In this project different plugins and tools are installed and used to format and improve the developed code.
+In this project the tasks web app is converted into a PWA. Also, useContext is used to add the light and dark theme functionality to the application.
 
-IETI - LAB06
+IETI - LAB07
 
 2022-2.
 
@@ -10,7 +10,7 @@ IETI - LAB06
 
 This project is developed following the conditions of the following repository:
 
-[ eslint-formatter ](https://github.com/CAPJackie/react-eslint-formatter)
+[ react-state-management-pwa ](https://github.com/CAPJackie/react-state-management-pwa)
 
 ### Prerequisites
 
@@ -22,7 +22,7 @@ To download the project run:
 
 ```bash
 git clone https://github.com/ZulyVargas/TASKAPP-FRONTEND.git
-git checkout eslint_formatter
+git checkout state-management-pwa
 ```
 
 Install the required libraries:
@@ -48,63 +48,37 @@ npm start
 
 ## Step by step:
 
-1. Install Prettier plugin:
+### Part 1: PWA
 
-![prettier](/img/prettier.png)
+1. Run the application. Lighthouse Tab -> Configuration:
 
-2. Install Eslint plugin:
+   ![lighthouse-config](/img/lighthouse-config.png)
 
-![eslint](/img/eslint.png)
+2. Generate report. Result:
 
-### ESLint:
+   ![report](/img/report.png)
 
-1. Open your package.json, go down there on the eslintConfig and leave it as the next is:
+3. File worker.js in the public folder. In line 4 the application paths were added:
 
-![p.json](/img/package-json.png)
+   ![worker](/img/worker.png)
 
-2. Run npm i -D eslint:
+4. Script in index.html:
 
-![run](/img/run.png)
+   ![index-script](/img/indexhtml.png)
 
-3. Add this 2 new scripts to the package.json:
+5. serviceWorkerRegistration.js with the register function:
 
-![run](/img/lint.png)
+   ![serviceWorkerReg](/img/serviceWorkerReg.png)
 
-4. If you installed eslint plugin the eslint errors will popup when you hover on warning messages on your code, for instance:
+   Calling the function:
 
-![run](/img/prettierOk.png)
+   ![](/img/registerFunc.png)
 
-### Prettier
+6. Running the app again with **npm start**:
 
-1. Add a new key down below eslintConfig, like this:
+   ![](/img/installableOk.png)
 
-![prettier](/img/newPrettier.png)
-
-2. Go to file/preferences/settings another alternative is pressing on windows ctrl +, On the User configuration open Text Editor / Formatting. Click on Format On Save checkbox:
-
-![onSave](/img/formatOnSave.png)
-
-### Husky
-
-1. Run
-
-   npm i -D husky
-
-   npm set-script prepare "husky install"
-
-   npm run prepare
-
-   npm i -D prettier
-
-   npm set-script format "prettier --write ."
-
-   npx husky add .husky/pre-commit "npm run lint:fix && npm format"
-
-   If you have problems use instead: npx husky add .husky/pre-commit "npm run lint:fix && npm run format"
-
-![husky-one](/img/husky-one.png)
-
-![husky-two](/img/husky-two.png)
+### Part 2: State Management
 
 ## Built With
 
