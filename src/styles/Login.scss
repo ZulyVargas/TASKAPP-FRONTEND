@@ -1,33 +1,30 @@
-@use './base.scss';
+@use "./base.scss";
 
-#GridLogin{
-    background-color: base.$main-color;
-    background-image: url(https://i.postimg.cc/8c10zwMW/fondo.png);
-    background-size: cover;
-    height: 100vh;
+#GridLogin {
+  background-color: base.$main-color;
+  background-image: url(https://i.postimg.cc/8c10zwMW/fondo.png);
+  background-size: cover;
+  height: 100vh;
 }
 
 //nesting
-.Paper {    
-    height: 65vh;
-    margin-top: 10vh;
-    padding: 25px;
+.Paper {
+  height: 65vh;
+  margin-top: 10vh;
+  padding: 25px;
 
-    #AvatarLogin {
-        background-color: base.$second-color;
-    }
+  #AvatarLogin {
+    background-color: base.$second-color;
+  }
 
-    h2{
-        font-family: base.$main-fonts;
-    }
+  h2 {
+    font-family: base.$main-fonts;
+  }
 
-    #forgotPasswd #newAccount{
-        font-family: base.$main-fonts;
-        &:link {color: base.$main-color}
+  #forgotPasswd #newAccount {
+    font-family: base.$main-fonts;
+    &:link {
+      color: base.$main-color;
     }
+  }
 }
-
-
-
-
-
