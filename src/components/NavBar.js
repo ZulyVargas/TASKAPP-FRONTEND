@@ -18,8 +18,18 @@ function NavBar(props) {
           width="60"
           height="70"
         />
+
+           
         <nav>
-          <ul>
+          
+          <ul> 
+            <li>  <div class="theme-switch-wrapper">
+       <label class="theme-switch" for="checkbox">
+    <input type="checkbox" id="checkbox" />
+    <div class="slider round"></div>
+  </label>
+    <em>Change theme</em>
+  </div></li>
             <li>
               <a href="/login" alt="Profile">
                 Profile
