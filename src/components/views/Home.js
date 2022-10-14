@@ -12,7 +12,7 @@ function Home() {
   const { userInfo } = useContext(AuthContext);
   const [inHome, setInHome] = useState({ inHome: false });
   const [tasks, setTasks] = useState([]);
-  const { state} = useContext(ThemeContext);
+  const { state } = useContext(ThemeContext);
 
   useEffect(() => {
     try {
