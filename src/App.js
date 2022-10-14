@@ -4,15 +4,15 @@ import { Routes, Route } from "react-router-dom";
 import LoginView from "./components/views/LoginView";
 import Home from "./components/views/Home";
 import AuthContextProvider from "./contexts/DataContext";
-import {themeReducer, initialState} from './utils/utils'
-import {ThemeContext} from "./contexts/ThemeContext";
+import { themeReducer, initialState } from "./utils/utils";
+import { ThemeContext } from "./contexts/ThemeContext";
 
 function App() {
   const [state, dispatch] = useReducer(themeReducer, initialState);
 
   return (
     <AuthContextProvider>
-      <ThemeContext.Provider  value={{ state, dispatch }}>
+      <ThemeContext.Provider value={{ state, dispatch }}>
         <div className="App">
           <Routes>
             <Route path="/" element={<LoginView />} />
