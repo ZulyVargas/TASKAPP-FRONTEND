@@ -8,11 +8,11 @@ import Button from "../Button";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import "../../styles/Home.scss";
 
-
 function Home() {
   const { userInfo } = useContext(AuthContext);
   const [inHome, setInHome] = useState({ inHome: false });
-  const [tasks, setTasks] = useState([]);const { state, dispatch } = useContext(ThemeContext);
+  const [tasks, setTasks] = useState([]);
+  const { state} = useContext(ThemeContext);
 
   useEffect(() => {
     try {
@@ -33,7 +33,7 @@ function Home() {
   }, [inHome, userInfo]);
 
   return (
-    <div className={`home-${state.isDarkMode ? "dark" : "light"}`} >
+    <div className={`home-${state.isDarkMode ? "dark" : "light"}`}>
       <NavBar />
       <h1>👋 Hello, Welcome {userInfo.name} !</h1>
       <Grid

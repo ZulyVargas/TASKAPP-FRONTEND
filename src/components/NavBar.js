@@ -1,9 +1,7 @@
-import {React, useContext} from "react";
+import { React, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/NavBar.scss";
 import { ThemeContext } from "../contexts/ThemeContext";
-
-
 
 function NavBar(props) {
   const logo = "https://cdn-icons-png.flaticon.com/512/1428/1428724.png";
@@ -13,26 +11,25 @@ function NavBar(props) {
   };
   const { state, dispatch } = useContext(ThemeContext);
   //Theme:
-  const toggleSwitch = document.querySelector('.theme-switch input[type="checkbox"]');
+  const toggleSwitch = document.querySelector(
+    '.theme-switch input[type="checkbox"]'
+  );
   const currentTheme = state;
   if (currentTheme) {
-    if (currentTheme === 'dark') {
-        toggleSwitch.checked = true;
+    if (currentTheme === "dark") {
+      toggleSwitch.checked = true;
     }
   }
 
   function switchTheme(e) {
     if (e.target.checked) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        dispatch("SET_DARK_MODE");
+      document.documentElement.setAttribute("data-theme", "dark");
+      dispatch("SET_DARK_MODE");
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      dispatch("SET_LIGHT_MODE");
     }
-    else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        dispatch("SET_LIGHT_MODE");
-    }    
   }
-
-   
 
   return (
     <header>
