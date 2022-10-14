@@ -81,6 +81,30 @@ npm start
 
 ### Part 2: State Management
 
+1. Create ThemeContext with the function to change the theme of the app:
+
+   ![](/img/theme1.png)
+
+2. App file with the ThemeContext.Provider:
+
+   ![](/img/appTheme.png)
+
+3. A button is added to the navigation bar component to allow the user to switch between light and dark mode. Pressing the button updates the theme stored in the context and home detects this change, then the background color of the home screen is changed.
+
+   In home:
+   ![](/img/home-dark-class.png)
+
+   Nav:
+   ![](/img/functionDark.png)
+
+   Option:
+
+   ![](/img/boton-theme.png)
+
+   After:
+
+   ![](/img/dark.png)
+
 ## Built With
 
 - [Visual Studio Code](https://code.visualstudio.com) - is a source code editor developed by Microsoft. It is free and multiplatform software, available for Windows, GNU/Linux and macOS.
