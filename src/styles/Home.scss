@@ -1,0 +1,12 @@
+@use "./base.scss";
+.home-dark {
+    background: base.$dark-mode;
+    color: white;
+    height:100vh;
+}
+
+.home-light {
+    background: white;
+    color: black;
+    height: 100vh;
+}

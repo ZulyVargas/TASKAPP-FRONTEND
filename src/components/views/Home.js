@@ -5,11 +5,14 @@ import { AuthContext } from "../../contexts/DataContext";
 import { Grid } from "@mui/material";
 import Task from "../Task";
 import Button from "../Button";
+import { ThemeContext } from "../../contexts/ThemeContext";
+import "../../styles/Home.scss";
+
 
 function Home() {
   const { userInfo } = useContext(AuthContext);
   const [inHome, setInHome] = useState({ inHome: false });
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState([]);const { state, dispatch } = useContext(ThemeContext);
 
   useEffect(() => {
     try {
@@ -30,7 +33,7 @@ function Home() {
   }, [inHome, userInfo]);
 
   return (
-    <div>
+    <div className={`home-${state.isDarkMode ? "dark" : "light"}`} >
       <NavBar />
       <h1>👋 Hello, Welcome {userInfo.name} !</h1>
       <Grid
