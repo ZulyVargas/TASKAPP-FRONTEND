@@ -1,8 +1,6 @@
-# TaskApp FRONTEND - PWA - STATE MANAGEMENT
+# TaskApp FRONTEND - React-TDD-jest-enzyme
 
-In this project the tasks web app is converted into a PWA. Also, useContext is used to add the light and dark theme functionality to the application.
-
-IETI - LAB07
+IETI - LAB08
 
 2022-2.
 
@@ -10,7 +8,7 @@ IETI - LAB07
 
 This project is developed following the conditions of the following repository:
 
-[ react-state-management-pwa ](https://github.com/CAPJackie/react-state-management-pwa)
+[ react-tdd-jest-enzyme ](https://github.com/CAPJackie/react-tdd-jest-enzyme)
 
 ### Prerequisites
 
@@ -22,7 +20,7 @@ To download the project run:
 
 ```bash
 git clone https://github.com/ZulyVargas/TASKAPP-FRONTEND.git
-git checkout state-management-pwa
+git checkout react-tdd-jest-enzyme
 ```
 
 Install the required libraries:
@@ -48,62 +46,51 @@ npm start
 
 ## Step by step:
 
-### Part 1: PWA
 
-1. Run the application. Lighthouse Tab -> Configuration:
+1. Add the following dependencies:
+   ```
+	  npm i -D jest enzyme @wojtekmaj/enzyme-adapter-react-17 @types/jest
+	```
+![install-jest-enzyme](/img/step1.png)
 
-   ![lighthouse-config](/img/lighthouse-config.png)
+2. Add an Enzyme Adapter to work with React ( Create a file on the root called setupTests.js, this will run before each test you write ):
 
-2. Generate report. Result:
+![setupTests](/img/setupStep2.png)
 
-   ![report](/img/report.png)
 
-3. File worker.js in the public folder. In line 4 the application paths were added:
+3. Configure jest so it knows where is the configuration file created in step 2 ( add the following value to your package.json ):
+:
+```json
+   "jest": {
+      "setupFilesAfterEnv": [
+         "<rootDir>/setupTests.js"
+      ]
+   }
+```
+![json](/img/step3.png)
 
-   ![worker](/img/worker.png)
+4. Create a simple test ( I'll create a test file for my App.js file ), if there is an existing App.test.js delete the content inside of it and replace it by the following:
 
-4. Script in index.html:
 
-   ![index-script](/img/indexhtml.png)
+![test](/img/step4.png)
 
-5. serviceWorkerRegistration.js with the register function:
 
-   ![serviceWorkerReg](/img/serviceWorkerReg.png)
+5. Read further documentation on how to use enzyme and Jest to test your components (Avoid Snapshot testing, it's better instead to validate if a wrapper is in the DOM as the previous example does)
 
-   Calling the function:
+6. Modify your existing test script like this: npm set-script test "jest"
 
-   ![](/img/registerFunc.png)
+![jest](/img/step5.png)
 
-6. Running the app again with **npm start**:
+7. Install the following dev dependencies: npm i -D @babel/preset-env babel-jest, those are useful to support EcmaScript modules on your jest files.
 
-   ![](/img/installableOk.png)
-   ![](/img/installableOk2.png)
+![test](/img/step7.png)
 
-### Part 2: State Management
+8. Create a file called .babelrc at the root directory and add the following lines:
 
-1. Create ThemeContext with the function to change the theme of the app:
+![babel](/img/step8.png)
 
-   ![](/img/theme1.png)
+9. Create a folder on the root directory called styleMock.js ( To mock every imported stylesheet )
 
-2. App file with the ThemeContext.Provider:
-
-   ![](/img/appTheme.png)
-
-3. A button is added to the navigation bar component to allow the user to switch between light and dark mode. Pressing the button updates the theme stored in the context and home detects this change, then the background color of the home screen is changed.
-
-   In home:
-   ![](/img/home-dark-class.png)
-
-   Nav:
-   ![](/img/functionDark.png)
-
-   Option:
-
-   ![](/img/boton-theme.png)
-
-   After:
-
-   ![](/img/dark.png)
 
 ## Built With
 
